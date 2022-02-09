@@ -18,13 +18,23 @@ public:
 		count = 0;
 	}
 	~List() {
-		while (Head)
-		{
-			Tail = Head->Next;
-			delete Head;
-			Head = Tail;
-		}
+		delAllList();
 	}
+
+	void delAllList() //реализация удаления всех элементов списка
+	{
+		while (Head != NULL) //пока не указываем на хвост
+		{
+			Node* pTemp = Head; //создаем временный элемент
+			Head = Head->Next; //присваиваем ему указатель на следующий
+			delete pTemp; // и удаляем его
+		}
+
+		Head = NULL;
+		Tail = NULL;
+		count = 0;
+	}
+
 	void insert(int x) {
 		Node* temp = new Node;
 		temp->Next = NULL;
@@ -66,7 +76,7 @@ public:
 			Node* temp2 = Head;
 			for (int i = 1; i < count; i++)
 			{
-				if ((i == num) && (num < count - 1))
+				if ((i == num) && (num < count))
 				{
 					int a = temp1->number;
 					temp1->number = temp1->Next->number;
@@ -76,8 +86,38 @@ public:
 			}
 		}
 	}
+	void swapptr(int num) {
+		if (num <= (count - 1) && num > 0)
+		{
+			Node* temp1 = Head;
+			Node* temp2 = temp1->Next;
+			for (int i = 1; i < count; i++)
+			{
+				if ((i == num) && (num < count))
+				{
+					temp1->Next = temp2->Next;
+					temp2->Prev = temp1->Prev;
+					temp1->Prev = temp2;
+					temp2->Next = temp1;
+					temp1->Next->Prev = temp1;
+					temp2->Prev->Next = temp2;
+					temp1 = temp1->Prev;
+					temp2 = temp1->Next;
+				}
+				temp1 = temp1->Next;
+				temp2 = temp2->Next;
+			}
+		}
+	}
 	void combine(List list) {
 		////////////////////////////////////////////////////////////////////////////////////////дописать
+		Node* tmp = list.Head;
+		while (tmp)
+		{
+			insert(tmp->number);
+			tmp = tmp->Next;
+		}
+		delete tmp;
 	}
 	void showForward() {
 		Node* temp = Head;
