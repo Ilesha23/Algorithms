@@ -55,15 +55,15 @@ public:
 	void del(int num) {
 		if (num <= count && num > 0)
 		{
-			Node* temp = Head;
+			Node* temp2 = Head;
 			for (int i = 0; i < count - 1; i++)
 			{
-				temp = temp->Next;
+				Node* temp1 = temp2->Next;
 				if (i = num)
 				{
-					temp->Prev->Next = temp->Next;
-					temp->Next->Prev = temp->Prev;
-					delete temp;
+					temp1->Prev->Next = temp1->Next;
+					temp1->Next->Prev = temp1->Prev;
+					delete temp1;
 					count--;
 				}
 			}
