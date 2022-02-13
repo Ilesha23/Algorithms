@@ -34,7 +34,6 @@ public:
 		Tail = NULL;
 		count = 0;
 	}
-
 	void insert(int x) {
 		Node* temp = new Node;
 		temp->Next = NULL;
@@ -53,19 +52,39 @@ public:
 		count++;
 	}
 	void del(int num) {
-		if (num <= count && num > 0)
+		if (num > 0 && num <= count)
 		{
-			Node* temp2 = Head;
-			for (int i = 0; i < count - 1; i++)
+			if (num == 1)
 			{
-				Node* temp1 = temp2->Next;
-				if (i = num)
+				Node* temp = Head;
+				Head = Head->Next;
+				delete temp;
+				count--;
+			}
+			else if (num == count)
+			{
+				Node* temp = Tail;
+				Tail->Prev->Next = Head;
+				Head->Prev = Tail->Prev;
+				Tail = Tail->Prev;
+				delete temp;
+				count--;
+			}
+			else
+			{
+				Node* temp = Head;
+				for (int i = 1; i <= count; i++)
 				{
-					temp1->Prev->Next = temp1->Next;
-					temp1->Next->Prev = temp1->Prev;
-					delete temp1;
-					count--;
+					if (num == i)
+					{
+						temp->Prev->Next = temp->Next;
+						temp->Next->Prev = temp->Prev;
+						count--;
+						break;
+					}
+					temp = temp->Next;
 				}
+				delete temp;
 			}
 		}
 	}
@@ -87,7 +106,7 @@ public:
 		}
 	}
 	void swapptr(int num) {
-		if (num <= (count - 1) && num > 0)
+		/*if (num <= (count - 1) && num > 0)
 		{
 			Node* temp1 = Head;
 			Node* temp2 = temp1->Next;
@@ -107,6 +126,61 @@ public:
 				temp1 = temp1->Next;
 				temp2 = temp2->Next;
 			}
+		}*/
+		if (num <= count && num > 0)
+		{
+			Node* temp1 = Head;
+			Node* temp2 = temp1->Next;
+			if (num == 1)
+			{
+				temp1 = Head->Next;
+				Head->Next = Head->Next->Next;
+				Head->Next->Prev = Head;
+				temp1->Next = Head;
+				Head->Prev = temp1;
+				Head = temp1;
+			}
+			else if (num == count)
+			{
+				temp1 = Head; temp2 = Tail;
+				temp2->Next = temp1->Next;
+				temp1->Next->Prev = temp2;
+				temp2->Prev->Next = temp1;
+				temp1->Prev = temp2->Prev;
+				Head = temp2;
+				Head->Prev = NULL;
+				Tail = temp1;
+				Tail->Next = NULL;
+			}
+			else
+			{
+				for (int i = 1; i < count; i++)
+				{
+					if (i == num)
+					{
+						if (temp1->Next == Tail)
+						{
+							Tail->Prev = temp1->Prev;
+							temp1->Prev->Next = Tail;
+							Tail->Next = temp1;
+							temp1->Prev = Tail;
+							temp1->Next = NULL;
+							Tail = temp1;
+
+						}
+						else
+						{
+							temp1->Prev->Next = temp2;
+							temp2->Prev = temp1->Prev;
+							temp2->Next->Prev = temp1;
+							temp1->Next = temp2->Next;
+							temp1->Prev = temp2;
+							temp2->Next = temp1;
+						}
+					}
+					temp1 = temp1->Next;
+				}
+			}
 		}
 	}
 	void combine(List list) {
@@ -120,21 +194,35 @@ public:
 		delete tmp;
 	}
 	void showForward() {
-		Node* temp = Head;
-		while (temp)
+		if (Head)
 		{
-			cout << temp->number << endl;
-			temp = temp->Next;
+			Node* temp = Head;
+			do
+			{
+				cout << temp->number << endl;
+				temp = temp->Next;
+			} while (temp != Tail->Next);
+			cout << "Amount is: " << count << endl;
 		}
-		cout << "Amount is: " << count << endl;
+		else
+		{
+			cout << "Empty" << endl;
+		}
 	}
 	void showBackward() {
-		Node* temp = Tail;
-		while (temp)
+		if (Head)
 		{
-			cout << temp->number << endl;
-			temp = temp->Prev;
+			Node* temp = Tail;
+			do
+			{
+				cout << temp->number << endl;
+				temp = temp->Prev;
+			} while (temp != Head->Prev);
+			cout << "Amount is: " << count << endl;
 		}
-		cout << "Amount is: " << count << endl;
+		else
+		{
+			cout << "Empty" << endl;
+		}
 	}
 };
