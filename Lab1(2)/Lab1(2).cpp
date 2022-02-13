@@ -61,6 +61,7 @@ int main()
 		case 8:
 			cout << "How many elements do you want to add?: ";
 			cin >> a; int b;
+			cout << "Enter numbers: " << endl;
 			for (int i = 0; i < a; i++)
 			{
 				cin >> b;
