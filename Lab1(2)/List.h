@@ -29,9 +29,8 @@ public:
 			Head = Head->Next;
 			delete temp;
 		}
-		delete Tail;
+		Tail = Head = NULL;
 	}
-
 	void insert(int x) {
 		Node* temp = new Node;
 		temp->number = x;
@@ -50,34 +49,41 @@ public:
 		count++;
 	}
 	void del(int num) {
-		if (Head && num <= count && num > 0)
+		if (num > 0 && num <= count)
 		{
-			Node* temp2 = Head;
-			for (int i = 0; i < count - 1; i++)
+			if (num == 1)
 			{
-				Node* temp1 = temp2->Next;
-				if (num == 1 && count == 1)
+				Node* temp = Head;
+				Tail->Next = Head->Next;
+				Head->Next->Prev = Tail;
+				Head = Tail->Next;
+				delete temp;
+				count--;
+			}
+			else if (num == count)
+			{
+				Node* temp = Tail;
+				Head->Prev = Tail->Prev;
+				Tail->Prev->Next = Head;
+				Tail = Head->Prev;
+				delete temp;
+				count--;
+			}
+			else
+			{
+				Node* temp = Head;
+				for (int i = 1; i <= count; i++)
 				{
-					Head = NULL;
-					Tail = NULL;
-					count--;
+					if (num == i)
+					{
+						temp->Prev->Next = temp->Next;
+						temp->Next->Prev = temp->Prev;
+						count--;
+						break;
+					}
+					temp = temp->Next;
 				}
-				else if(num == count)
-				{
-					Node* tmp = Tail->Prev;
-					tmp->Next = Head;
-					Head->Prev = tmp;
-					delete Tail;
-					Tail = tmp;
-					count--;
-				}
-				else if(i = num)
-				{
-					temp1->Prev->Next = temp1->Next;
-					temp1->Next->Prev = temp1->Prev;
-					delete temp1;
-					count--;
-				}
+				delete temp;
 			}
 		}
 	}
@@ -172,21 +178,35 @@ public:
 		}
 	}
 	void showForward() {
-		Node* temp = Head;
-		do
+		if (Head)
 		{
-			cout << temp->number << endl;
-			temp = temp->Next;
-		} while (temp != Head);
-		cout << "Amount is: " << count << endl;
+			Node* temp = Head;
+			do
+			{
+				cout << temp->number << endl;
+				temp = temp->Next;
+			} while (temp != Head);
+			cout << "Amount is: " << count << endl;
+		}
+		else
+		{
+			cout << "Empty" << endl;
+		}
 	}
 	void showBackward() {
-		Node* temp = Tail;
-		do
+		if (Head)
 		{
-			cout << temp->number << endl;
-			temp = temp->Prev;
-		} while (temp != Tail);
-		cout << "Amount is: " << count << endl;
+			Node* temp = Tail;
+			do
+			{
+				cout << temp->number << endl;
+				temp = temp->Prev;
+			} while (temp != Tail);
+			cout << "Amount is: " << count << endl;
+		}
+		else
+		{
+			cout << "Empty" << endl;
+		}
 	}
 };
