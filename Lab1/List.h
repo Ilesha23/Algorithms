@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <fstream>
+#include "stdio.h"
 #include <cstddef>
 using namespace std;
 
@@ -50,6 +52,31 @@ public:
 			Head = Tail = temp;
 		}
 		count++;
+	}
+	void insertFromFile(string name) {
+		ifstream fin;
+		fin.open(name);
+		if (fin.fail()) cout << "ERROR opening file";
+		int s;
+		while (fin >> s)
+		{
+			insert(s);
+		}
+		fin.close();
+	}
+	void saveToFile(string name) {
+		ofstream fout;
+		fout.open(name, ios::out);
+		if (fout.fail()) cout << "ERROR opening file";
+		if (Head)
+		{
+			Node* temp = Head;
+			do
+			{
+				fout << temp->number << endl;
+				temp = temp->Next;
+			} while (temp != Tail->Next);
+		}
 	}
 	void del(int num) {
 		if (num > 0 && num <= count)
@@ -106,27 +133,6 @@ public:
 		}
 	}
 	void swapptr(int num) {
-		/*if (num <= (count - 1) && num > 0)
-		{
-			Node* temp1 = Head;
-			Node* temp2 = temp1->Next;
-			for (int i = 1; i < count; i++)
-			{
-				if ((i == num) && (num < count))
-				{
-					temp1->Next = temp2->Next;
-					temp2->Prev = temp1->Prev;
-					temp1->Prev = temp2;
-					temp2->Next = temp1;
-					temp1->Next->Prev = temp1;
-					temp2->Prev->Next = temp2;
-					temp1 = temp1->Prev;
-					temp2 = temp1->Next;
-				}
-				temp1 = temp1->Next;
-				temp2 = temp2->Next;
-			}
-		}*/
 		if (num <= count && num > 0)
 		{
 			Node* temp1 = Head;
