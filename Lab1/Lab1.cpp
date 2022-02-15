@@ -12,7 +12,7 @@ int main()
 	int w, a = 0;
 	do
 	{
-		cout << endl << setw(25) << "Insert - 1" << endl; cout << setw(25) << "Delete element - 2" << endl; cout << setw(25) << "Delete all list - 3" << endl; cout << setw(25) << "Swap data - 4" << endl; cout << setw(25) << "Swap using pointers - 5" << endl; cout << setw(25) << "Show forward - 6" << endl; cout << setw(25) << "Show backward - 7" << endl; cout << setw(25) << "Create 2nd list - 8" << endl; cout << setw(25) << "Combine two lists - 9" << endl; cout << setw(25) << "Insert from file to list1 - 10" << endl; cout << setw(25) << "Insert from file to list2 - 11" << endl; cout << setw(25) << "Save to file - 12" << endl;
+		cout << endl << setw(30) << "Insert - 1" << endl; cout << setw(30) << "Delete element - 2" << endl; cout << setw(30) << "Delete all list - 3" << endl; cout << setw(30) << "Swap data - 4" << endl; cout << setw(30) << "Swap using pointers - 5" << endl; cout << setw(30) << "Show forward - 6" << endl; cout << setw(30) << "Show backward - 7" << endl; cout << setw(30) << "Create 2nd list - 8" << endl; cout << setw(30) << "Combine two lists - 9" << endl; cout << setw(30) << "Insert from file to list1 - 10" << endl; cout << setw(30) << "Insert from file to list2 - 11" << endl; cout << setw(30) << "Save to file - 12" << endl;
 		cout << "> "; cin >> w;
 		switch (w)
 		{
