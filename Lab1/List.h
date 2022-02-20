@@ -23,13 +23,13 @@ public:
 		delAllList();
 	}
 
-	void delAllList() //реализация удаления всех элементов списка
+	void delAllList()
 	{
-		while (Head != NULL) //пока не указываем на хвост
+		while (Head != NULL)
 		{
-			Node* pTemp = Head; //создаем временный элемент
-			Head = Head->Next; //присваиваем ему указатель на следующий
-			delete pTemp; // и удаляем его
+			Node* pTemp = Head;
+			Head = Head->Next;
+			delete pTemp;
 		}
 
 		Head = NULL;
@@ -190,7 +190,6 @@ public:
 		}
 	}
 	void combine(List list) {
-		////////////////////////////////////////////////////////////////////////////////////////дописать
 		Node* tmp = list.Head;
 		while (tmp)
 		{

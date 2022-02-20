@@ -32,6 +32,7 @@ public:
 			delete temp;
 		}
 		Tail = Head = NULL;
+		count = 0;
 	}
 	void insert(int x) {
 		Node* temp = new Node;
