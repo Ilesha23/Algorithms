@@ -9,8 +9,7 @@ int main()
 	s.push(2);
 	s.push(3);
 	s.push(4);
-
-	s.turnOver();
+	s.deleteAllButLast();
 
 	s.show();
 }

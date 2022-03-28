@@ -36,6 +36,8 @@ public:
 			Head = Tail = temp;
 		}
 		count++;
+		temp = NULL;
+		delete temp;
 	}
 	void pop() {
 		if (Head == Tail)
@@ -47,6 +49,7 @@ public:
 		{
 			Node* temp = Head;
 			Head = Head->Next;
+			temp = NULL;
 			delete temp;
 			count--;
 		}
@@ -62,6 +65,7 @@ public:
 			if (n == 0)
 			{
 				Head = Head->Next;
+				temp = NULL;
 				delete temp;
 			}
 			else if (n == count - 1)
@@ -73,11 +77,14 @@ public:
 					if (temp2->Next == Tail)
 					{
 						Tail = temp2;
+						temp = NULL;
 						delete temp;
 						break;
 					}
 					temp2 = temp2->Next;
 				}
+				temp2 = NULL;
+				delete temp2;
 			}
 			else
 			{
@@ -87,11 +94,14 @@ public:
 					{
 						Node* temp2 = temp->Next;
 						temp->Next = temp->Next->Next;
+						temp2 = NULL;
 						delete temp2;
 						break;
 					}
 					temp = temp->Next;
 				}
+				temp = NULL;
+				delete temp;
 			}
 			count--;
 		}
@@ -113,7 +123,7 @@ public:
 					pop(q);
 					q--;
 				}
-				q++;//эл с которого начинается удаление;
+				q++;
 			}
 		}
 	}
@@ -133,10 +143,151 @@ public:
 			q.push(temp1->data);
 			temp1 = temp1->Next;
 		}
-		//*this = q;							 ДОПИСАТЬ
-		Head = q.Head;
-		this->show();
-		delete temp1;
+		temp1 = q.Head;
+		Node* temp2 = Head;
+		while (temp1 != q.Tail->Next)
+		{
+			temp2->data = temp1->data;
+			temp2 = temp2->Next;
+			temp1 = temp1->Next;
+		}
+		temp1 = temp2 = NULL;
+		delete temp1, temp2;
+	}
+	void showStar() {
+		int i = 0;
+		Node* temp = Head;
+		if (count % 2 == 0)
+		{
+			while (temp != Tail->Next)
+			{
+				if (count / 2 == i)
+				{
+					cout << "*" << endl;
+				}
+				cout << temp->data << endl;
+				temp = temp->Next;
+				i++;
+			}
+			cout << "Amount: " << count << endl;
+		}
+		else
+		{
+			while (temp != Tail->Next)
+			{
+				if (count / 2 == i)
+				{
+					cout << "*" << endl;
+				}
+				cout << temp->data << endl;
+				temp = temp->Next;
+				i++;
+			}
+			cout << "Amount: " << count << endl;
+		}
+		temp = NULL;
+		delete temp;
+	}
+	Node* findMax() {
+		Node* temp = Head;
+		Node* max = temp;
+		while (temp != Tail->Next)
+		{
+			if (temp->data > max->data)
+			{
+				max = temp;
+			}
+			temp = temp->Next;
+		}
+		temp = NULL;
+		delete temp;
+		
+		return max;
+	}
+	Node* findMin() {
+		Node* temp = Head;
+		Node* min = temp;
+		while (temp != Tail->Next)
+		{
+			if (temp->data < min->data)
+			{
+				min = temp;
+			}
+			temp = temp->Next;
+		}
+		temp = NULL;
+		delete temp;
+
+		return min;
+	}
+	void insertZeroAfterMax() {
+		Node* zero = new Node;
+		zero->data = 0;
+		zero->Next = findMax()->Next;
+		findMax()->Next = zero;
+		count++;
+	}
+	Node* getByNum(int a) {
+		if (a < count)
+		{
+			Node* temp = Head;
+			int i = 0;
+			while (temp != nullptr)
+			{
+				if (a == i)
+				{
+					return temp;
+				}
+				temp = temp->Next;
+				i++;
+			}
+		}
+	}
+	void deleteMin() {
+		Node* temp = Head;
+		if (findMin() == Head)
+		{
+			Head = Head->Next;
+		}
+		else if (findMin() == Tail)
+		{
+			getByNum(count - 2)->Next = Tail = NULL;
+			Tail = getByNum(count - 2);
+		}
+		else
+		{
+			Node* min = findMin();
+			while (temp)
+			{
+				if (temp->Next == min)
+				{
+					temp->Next = min->Next;
+					min = nullptr;
+					delete min;
+					break;
+				}
+				temp = temp->Next;
+			}
+		}
+		count--;
+		temp = NULL;
+		delete temp;
+	}
+	void deleteAllButFirst() {
+		for (int i = 1; i < count;)
+		{
+			pop(i);
+		}
+	}
+	void deleteAllButLast() {
+		Node* temp = Head;
+		while (temp != Tail)
+		{
+			temp = temp->Next;
+			pop();
+		}
+		temp = nullptr;
+		delete temp;
 	}
 	void show() {
 		Node* temp = Head;
@@ -146,5 +297,7 @@ public:
 			temp = temp->Next;
 		}
 		cout << "Amount: " << count << endl;
+		temp = NULL;
+		delete temp;
 	}
 };
