@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 #include <cstddef>
 
 using namespace std;
@@ -289,12 +290,47 @@ public:
 		temp = nullptr;
 		delete temp;
 	}
+	void saveToFile(string name) {
+		ofstream fout;
+		fout.open(name, ios::out);
+		if (fout.fail()) cout << "ERROR opening file";
+		if (Head)
+		{
+			Node* temp = Tail;
+			int a = count - 1;
+			do
+			{
+				temp = getByNum(a);
+				fout << temp->data << endl;
+				a--;
+			} while (a >= 0);
+		}
+	}
+	void insertFromFile(string name) {
+		ifstream fin;
+		fin.open(name);
+		if (fin.fail()) cout << "ERROR opening file";
+		int s;
+		popAll();
+		while (fin >> s)
+		{
+			push(s);
+		}
+		fin.close();
+	}
 	void show() {
 		Node* temp = Head;
-		while (temp != Tail->Next)
+		if (count < 1)
 		{
-			cout << temp->data << endl;
-			temp = temp->Next;
+			cout << "Empty" << endl;
+		}
+		else
+		{
+			while (temp != Tail->Next)
+			{
+				cout << temp->data << endl;
+				temp = temp->Next;
+			}
 		}
 		cout << "Amount: " << count << endl;
 		temp = NULL;
