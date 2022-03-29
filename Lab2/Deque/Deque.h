@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 using namespace std;
 
 struct Node {
@@ -54,14 +55,28 @@ public:
 	}
 	void pop_front() {
 		Node* temp = Head;
-		Head = Head->Next;
+		if (Head != Tail)
+		{
+			Head = Head->Next;
+		}
+		else
+		{
+			Head = Tail = nullptr;
+		}
 		temp = nullptr;
 		delete temp;
 		count--;
 	}
 	void pop_back() {
 		Node* temp = Tail;
-		Tail = Tail->Prev;
+		if (Head != Tail)
+		{
+			Tail = Tail->Prev;
+		}
+		else
+		{
+			Head = Tail = nullptr;
+		}
 		temp = nullptr;
 		delete temp;
 		count--;
@@ -104,12 +119,46 @@ public:
 			return true;
 		}
 	}
+	void saveToFile(string name) {
+		ofstream fout;
+		fout.open(name, ios::out);
+		if (fout.fail()) cout << "ERROR opening file";
+		if (Head)
+		{
+			Node* temp = Head;
+			do
+			{
+				fout << temp->data << endl;
+				temp = temp->Next;
+			} while (temp != Tail->Next);
+		}
+	}
+	void insertFromFile(string name) {
+		ifstream fin;
+		fin.open(name);
+		if (fin.fail()) cout << "ERROR opening file";
+		int s;
+		popAll();
+		while (fin >> s)
+		{
+			push_back(s);
+		}
+		fin.close();
+	}
+
 	void show() {
 		Node* temp = Head;
-		while (temp != Tail->Next)
+		if (count < 1)
 		{
-			cout << temp->data << endl;
-			temp = temp->Next;
+			cout << "Empty" << endl;
+		}
+		else
+		{
+			while (temp != Tail->Next)
+			{
+				cout << temp->data << endl;
+				temp = temp->Next;
+			}
 		}
 		cout << "Amount: " << count << endl;
 		temp = nullptr;
