@@ -33,19 +33,19 @@ int main()
 			q.popAll();
 			break;
 		case 4:
-			q.getElem();
+			cout << endl << "Element is: " << q.getElem() << endl;
 			cout << endl;
 			break;
 		case 5:
-			cout << "Average is: " << q.average() << endl;
+			cout << endl << "Average is: " << q.average() << endl;
 			cout << endl;
 			break;
 		case 6:
-			cout << "Min is: " << q.findMin()->data << endl;
+			cout << endl << "Min is: " << q.findMin()->data << endl;
 			cout << endl;
 			break;
 		case 7:
-			cout << "Max is: " << q.findMax()->data << endl;
+			cout << endl << "Max is: " << q.findMax()->data << endl;
 			cout << endl;
 			break;
 		case 8:

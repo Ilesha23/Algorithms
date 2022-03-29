@@ -36,7 +36,14 @@ public:
 	}
 	void pop() {
 		Node* temp = Head;
-		Head = Head->Next;
+		if (Head != Tail)
+		{
+			Head = Head->Next;
+		}
+		else
+		{
+			Head = Tail = nullptr;
+		}
 		temp = nullptr;
 		delete temp;
 		count--;
@@ -110,11 +117,12 @@ public:
 		if (fout.fail()) cout << "ERROR opening file";
 		if (Head)
 		{
-			Node* temp = Tail;
+			Node* temp = Head;
 			do
 			{
 				fout << temp->data << endl;
-			} while (temp != Head->Prev);
+				temp = temp->Next;
+			} while (temp != Tail->Next);
 		}
 	}
 	void insertFromFile(string name) {
@@ -129,13 +137,19 @@ public:
 		}
 		fin.close();
 	}
-
 	void show() {
 		Node* temp = Head;
-		while (temp != Tail->Next)
+		if (count < 1)
 		{
-			cout << temp->data << endl;
-			temp = temp->Next;
+			cout << "Empty" << endl;
+		}
+		else
+		{
+			while (temp != Tail->Next)
+			{
+				cout << temp->data << endl;
+				temp = temp->Next;
+			}
 		}
 		cout << "Amount: " << count << endl;
 		temp = nullptr;
