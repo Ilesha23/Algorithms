@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 using namespace std;
 
 struct Node {
@@ -103,6 +104,32 @@ public:
 			cout << findMin()->Prev->data << endl;
 		}
 	}
+	void saveToFile(string name) {
+		ofstream fout;
+		fout.open(name, ios::out);
+		if (fout.fail()) cout << "ERROR opening file";
+		if (Head)
+		{
+			Node* temp = Tail;
+			do
+			{
+				fout << temp->data << endl;
+			} while (temp != Head->Prev);
+		}
+	}
+	void insertFromFile(string name) {
+		ifstream fin;
+		fin.open(name);
+		if (fin.fail()) cout << "ERROR opening file";
+		int s;
+		popAll();
+		while (fin >> s)
+		{
+			push(s);
+		}
+		fin.close();
+	}
+
 	void show() {
 		Node* temp = Head;
 		while (temp != Tail->Next)
