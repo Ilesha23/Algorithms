@@ -17,10 +17,10 @@ struct Node {
 class Tree {
 public:
 	Node* Root;
-	int count;
+	int count, tabs;
 	Tree() {
 		Root = nullptr;
-		count = 0;
+		count = tabs =0;
 	}
 	void add(string n, int num, int g) {
 		/*if (!Root)
@@ -47,7 +47,7 @@ public:
 		while (ptr != 0)
 		{
 			ptr1 = ptr;
-			if (temp->name < ptr->name)
+			if (temp->number < ptr->number)
 			{
 				ptr = ptr->Left;
 			}
@@ -63,7 +63,7 @@ public:
 		}
 		else
 		{
-			if (temp->name < ptr1->name)
+			if (temp->number < ptr1->number)
 			{
 				ptr1->Left = temp;
 			}
@@ -74,14 +74,44 @@ public:
 		}
 		count++;
 	}
-	void show(Node* n) {
+	void showForward(Node* n) {
 		if (n != 0)
 		{
-			show(n->Left);
-			cout << n->name << endl;
-			cout << n->number << endl;
-			cout << n->group << endl << endl;
-			show(n->Right);
+			tabs++;
+			showForward(n->Right);
+			for (int i = 0; i < tabs; i++) cout << "	";
+			cout << n->number << endl;// n->name << " " << n->number << " " << n->group << endl;
+			showForward(n->Left);
+			tabs--;
 		}
+	}
+	void showF(Node* n) {
+		if (n != 0)
+		{
+			cout << n->number << endl;// n->name << " " << n->number << " " << n->group << endl;
+			showF(n->Left);
+			showF(n->Right);
+		}
+	}
+	void showBackward(Node* n) {
+		if (n != 0)
+		{
+			showBackward(n->Right);
+			showBackward(n->Left);
+			for (int i = 0; i < tabs; i++) cout << "	";
+			cout << n->number << endl;// n->name << " " << n->number << " " << n->group << endl;
+		}
+	}
+	void showSymmetrically(Node* n) {
+		if (n != 0)
+		{
+			showSymmetrically(n->Left);
+			for (int i = 0; i < tabs; i++) cout << "	";
+			cout << n->number << endl;// n->name << " " << n->number << " " << n->group << endl;
+			showSymmetrically(n->Right);
+		}
+	}
+	void show() {
+		showForward(Root);
 	}
 };
