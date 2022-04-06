@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include <windows.h>
+#include <fstream>
 using namespace std;
 
 struct Node {
@@ -193,4 +195,59 @@ public:
 		delTree();
 		*this = tree;
 	}
+	void save(Node* n, string name) {
+		if (n != 0)
+		{
+			ofstream fout;
+			if (fout.fail()) cout << "ERROR opening file";
+			fout.open(name, ios::app);
+			fout << n->number << endl << n->group << endl << n->name << endl;
+			fout.close();
+			save(n->Left, name);
+			save(n->Right, name);
+		}
+	}
+	void saveToFile(string name) {
+		ofstream fout;
+		if (fout.fail()) cout << "ERROR opening file";
+		fout.open(name, ios::out);
+		fout.close();
+		save(Root, name);
+	}
+	void read(Node* n, string name) {
+		ifstream fin;
+		fin.open(name);
+		if (fin.fail()) cout << "ERROR opening file";
+		char buf[255];
+		int num, g, i = 1;
+		string nam;
+		while (fin)
+		{
+			fin.getline(buf, 255);
+			if (i % 3 == 1)
+			{
+				g = atoi(buf);
+				i++;
+			}
+			else if (i % 3 == 2)
+			{
+				num = atoi(buf);
+				i++;
+			}
+			else
+			{
+				nam = string(buf);
+				i++;
+				add(nam, num, g);
+			}
+		}
+		fin.close();
+	}
+	void readFromFile(string name) {
+		read(Root, name);
+	}
 };
+
+
+//HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+//SetConsoleTextAttribute(hConsole, 2);
