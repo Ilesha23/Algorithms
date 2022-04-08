@@ -8,128 +8,90 @@ int main()
 {
 	Tree t;
 	RBTree rb;
-	/*t.add("555", 5, 555);
-	t.add("222", 2, 222);
-	t.add("333", 3, 333);
-	t.add("111", 1, 111);
-	t.add("444", 4, 444);
-	t.add("777", 7, 777);
-	t.add("666", 6, 666);
-	t.add("888", 8, 888);
-	t.show();
-	t.saveToFile("1.txt");*/
-	/*t.readFromFile("1.txt");
-	t.show();
-	rb.makeRB(t);
-	rb.p();*/
 
-	/*int w, a = 0;
+	int num, g;
+	string name;
+	int w, a = 0;
 	do
 	{
-		s.show();
-		cout << endl << setw(30) << "Push - 1" << endl; cout << setw(30) << "Pop - 2" << endl; cout << setw(30) << "Pop by index - 3" << endl; cout << setw(30) << "Pop all - 4" << endl; cout << setw(30) << "Pop every second - 5" << endl; cout << setw(30) << "Swap first last - 6" << endl; cout << setw(30) << "Turn over - 7" << endl; cout << setw(30) << "Show star - 8" << endl; cout << setw(30) << "Find max - 9" << endl; cout << setw(30) << "Find min - 10" << endl; cout << setw(30) << "Insert zero after max - 11" << endl; cout << setw(30) << "Delete min - 12" << endl; cout << setw(30) << "Delete all but first - 13" << endl; cout << setw(30) << "Delete all but last - 14" << endl; cout << setw(30) << "Save to file - 15" << endl;
-		cout << setw(30) << "Insert from file - 16" << endl;
+		t.show();
+		cout << endl << endl;
+		rb.p();
+		cout << endl << setw(30) << "Add - 1" << endl;
+		cout << setw(30) << "Pre-order walk - 2" << endl;
+		cout << setw(30) << "Post order walk - 3" << endl;
+		cout << setw(30) << "Symmetrical walk - 4" << endl;
+		cout << setw(30) << "Delete tree - 5" << endl;
+		cout << setw(30) << "Delete left tree - 6" << endl;
+		cout << setw(30) << "Delete right tree - 7" << endl;
+		cout << setw(30) << "Make tree by another key- 8" << endl;
+		cout << setw(30) << "Add by num - 9" << endl;
+		cout << setw(30) << "Colorize tree to RB - 10" << endl;
+		cout << setw(30) << "Add - 11" << endl;
+		cout << setw(30) << "Delete - 12" << endl;
+		cout << setw(30) << "Add from file - 13" << endl;
+		cout << setw(30) << "Save to file - 14" << endl;
 		cout << "> "; cin >> w;
 		switch (w)
 		{
 		case 1:
-			cout << "Enter number: ";
-			cin >> a;
-			cout << endl;
-			s.push(a);
+			cout << "Enter name: "; cin >> name;
+			cout << "Enter number: "; cin >> num;
+			cout << "Enter group: "; cin >> g;
+			t.add(name, num, g);
 			break;
 		case 2:
-			s.pop();
-			cout << endl;
+			t.showPreOrder();
 			break;
 		case 3:
-			cout << "Enter number: ";
-			cin >> a;
-			cout << endl;
-			s.pop(a);
+			t.showPostOrder();
 			break;
 		case 4:
-			s.popAll();
-			cout << endl;
+			t.showSymm();
 			break;
 		case 5:
-			s.popEverySecond();
-			cout << endl;
+			t.delTree();
 			break;
 		case 6:
-			s.swapFirstLast();
-			cout << endl;
+			t.delLeftTree();
 			break;
 		case 7:
-			s.turnOver();
-			cout << endl;
+			t.delRightTree();
 			break;
 		case 8:
-			s.showStar();
-			cout << endl;
+			t.remake();
 			break;
 		case 9:
-			cout << endl << "Max is: " << s.findMax()->data << endl;
-			cout << endl;
+			cout << "Enter name: "; cin >> name;
+			cout << "Enter number: "; cin >> num;
+			cout << "Enter group: "; cin >> g;
+			t.addByN(name, num, g);
 			break;
 		case 10:
-			cout << endl << "Max is: " << s.findMin()->data << endl;
-			cout << endl;
+			rb.makeRB(t);
 			break;
 		case 11:
-			s.insertZeroAfterMax();
-			cout << endl;
+			cout << "Enter name: "; cin >> name;
+			cout << "Enter number: "; cin >> num;
+			cout << "Enter group: "; cin >> g;
+			rb.insert(num, g, name);
 			break;
 		case 12:
-			s.deleteMin();
-			cout << endl;
+			cout << "Enter name: "; cin >> name;
+			cout << "Enter number: "; cin >> num;
+			cout << "Enter group: "; cin >> g;
+			rb.remove(num, g, name);
 			break;
 		case 13:
-			s.deleteAllButFirst();
-			cout << endl;
+			t.readFromFile("1.txt");
 		case 14:
-			s.deleteAllButLast();
-			cout << endl;
-			break;
-		case 15:
-			s.saveToFile("Stack.txt");
-			cout << endl << "Saved!" << endl;
-			break;
-		case 16:
-			s.insertFromFile("Stack.txt");
-			cout << endl;
+			t.saveToFile("1.txt");
+			cout << "Saved" << endl;
 			break;
 		default:
 			break;
 		}
-	} while (w <= 16 && w >= 1);*/
+	} while (w <= 14 && w >= 1);
 
-	/*t.add("555", 5, 555);
-	t.add("222", 2, 222);
-	t.add("333", 3, 333);
-	t.add("111", 1, 111);
-	t.add("444", 4, 444);
-	t.add("777", 7, 777);
-	t.add("666", 6, 666);
-	t.add("888", 8, 888);
-	t.show();
-	cout << endl;*/
-
-	
-	/*rb.insert(5, 555, "555");
-	rb.insert(2, 222, "222");
-	rb.insert(3, 333, "333");
-	rb.insert(1, 111, "111");
-	rb.insert(4, 444, "444");
-	rb.insert(7, 777, "777");
-	rb.insert(6, 666, "666");
-	rb.insert(8, 888, "888");*/
-	/*rb.makeRB(t);
-	rb.p();
-	rb.postOrder();
-	cout << endl;
-	rb.preOrder();
-	cout << endl;
-	rb.inOrder();*/
 	return 0;
 }

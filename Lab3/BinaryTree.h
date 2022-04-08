@@ -32,40 +32,6 @@ public:
 		while (ptr != 0)
 		{
 			ptr1 = ptr;
-			if (temp->number < ptr->number)
-			{
-				ptr = ptr->Left;
-			}
-			else
-			{
-				ptr = ptr->Right;
-			}
-		}
-		temp->Parent = ptr1;
-		if (ptr1 == 0)
-		{
-			Root = temp;
-		}
-		else
-		{
-			if (temp->number < ptr1->number)
-			{
-				ptr1->Left = temp;
-			}
-			else
-			{
-				ptr1->Right = temp;
-			}
-		}
-		count++;
-	}
-	void addByName(Node* node) {
-		Node* temp = new Node(node->name, node->number, node->group);
-		Node* ptr, * ptr1;
-		ptr = ptr1 = Root;
-		while (ptr != 0)
-		{
-			ptr1 = ptr;
 			if (temp->name < ptr->name)
 			{
 				ptr = ptr->Left;
@@ -93,13 +59,52 @@ public:
 		}
 		count++;
 	}
+	void addByNum(Node* node) {
+		Node* temp = new Node(node->name, node->number, node->group);
+		Node* ptr, * ptr1;
+		ptr = ptr1 = Root;
+		while (ptr != 0)
+		{
+			ptr1 = ptr;
+			if (temp->number < ptr->number)
+			{
+				ptr = ptr->Left;
+			}
+			else
+			{
+				ptr = ptr->Right;
+			}
+		}
+		temp->Parent = ptr1;
+		if (ptr1 == 0)
+		{
+			Root = temp;
+		}
+		else
+		{
+			if (temp->number < ptr1->number)
+			{
+				ptr1->Left = temp;
+			}
+			else
+			{
+				ptr1->Right = temp;
+			}
+		}
+		count++;
+	}
+	void addByN(string name, int num, int g) {
+		Node* n = new Node(name, num, g);
+		addByNum(n);
+	}
+
 	void showForward(Node* n) {
 		if (n != 0)
 		{
 			tabs++;
 			showForward(n->Right);
 			for (int i = 0; i < tabs; i++) cout << "	";
-			cout << n->number << " " << n->group << " " << n->name << endl;
+			cout << n->name << " " << n->number << " " << n->group << endl;
 			showForward(n->Left);
 			tabs--;
 		}
@@ -107,7 +112,7 @@ public:
 	void showF(Node* n) {
 		if (n != 0)
 		{
-			cout << n->number << " " << n->group << " " << n->name << endl;// n->name << " " << n->number << " " << n->group << endl;
+			cout << n->name << " " << n->number << " " << n->group << endl;
 			showF(n->Left);
 			showF(n->Right);
 		}
@@ -118,7 +123,7 @@ public:
 			showBackward(n->Right);
 			showBackward(n->Left);
 			for (int i = 0; i < tabs; i++) cout << "	";
-			cout << n->number << endl;// n->name << " " << n->number << " " << n->group << endl;
+			cout << n->name << " " << n->number << " " << n->group << endl;
 		}
 	}
 	void showSymmetrically(Node* n) {
@@ -126,13 +131,39 @@ public:
 		{
 			showSymmetrically(n->Left);
 			for (int i = 0; i < tabs; i++) cout << "	";
-			cout << n->number << endl;// n->name << " " << n->number << " " << n->group << endl;
+			cout << n->name << " " << n->number << " " << n->group << endl;
 			showSymmetrically(n->Right);
 		}
 	}
 	void show() {
-		showForward(Root);
+		if (Root)
+		{
+			showForward(Root);
+		}
+		else
+		{
+			cout << "Empty" << endl;
+		}
 	}
+	void showPreOrder() {
+		if (Root)
+			showF(Root);
+		else
+			cout << "Empty" << endl;
+	}
+	void showPostOrder() {
+		if (Root)
+			showBackward(Root);
+		else
+			cout << "Empty" << endl;
+	}
+	void showSymm() {
+		if (Root)
+			showSymmetrically(Root);
+		else
+			cout << "Empty" << endl;
+	}
+
 	void delLeft(Node* n) {
 		if (n != 0)
 		{
@@ -174,6 +205,7 @@ public:
 		delete Root;
 		count--;
 	}
+
 	void makeVectorFromTree(Node* n, vector<Node*>& m) {
 		if (n != 0)
 		{
@@ -186,15 +218,16 @@ public:
 		Tree tree;
 		vector<Node*> mas;
 		makeVectorFromTree(Root, mas);
-		//tree.addByName(mas[mas.size() / 2]);
+		//tree.addByNum(mas[mas.size() / 2]);
 		//mas.erase(mas.begin() + mas.size() / 2); // for rand
 		for (int i = 0; i < mas.size(); i++)
 		{
-			tree.addByName(mas[i]);
+			tree.addByNum(mas[i]);
 		}
 		delTree();
 		*this = tree;
 	}
+
 	void save(Node* n, string name) {
 		if (n != 0)
 		{
