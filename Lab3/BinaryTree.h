@@ -120,8 +120,8 @@ public:
 	void showBackward(Node* n) {
 		if (n != 0)
 		{
-			showBackward(n->Right);
 			showBackward(n->Left);
+			showBackward(n->Right);
 			for (int i = 0; i < tabs; i++) cout << "	";
 			cout << n->name << " " << n->number << " " << n->group << endl;
 		}
