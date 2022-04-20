@@ -119,7 +119,11 @@ public:
 			int q = 0;
 			for (int i = 0; i < count; i++)
 			{
-				pop(q);
+				if (i % 2 == 0)
+				{
+					pop(q);
+					q--;
+				}
 				q++;
 			}
 		}
