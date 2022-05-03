@@ -25,46 +25,59 @@ int main()
 	cout.precision(6);
 
 	FillRand(arr);
+	//show(arr);
 	clock_t start1 = clock();
 	InsertionSort(arr);
 	clock_t end1 = clock();
-	cout << setw(25) << "Insertion sort (random): " << setw(10) << (double)(end1 - start1) / CLOCKS_PER_SEC << endl;
+	//show(arr);
+	cout << setw(25) << "Insertion sort (random): " << setw(10) << (double)(end1 - start1) / CLOCKS_PER_SEC << endl << endl;
 
 	FillUp(arr);
+	//show(arr);
 	start1 = clock();
 	InsertionSort(arr);
 	end1 = clock();
- 	cout << setw(25) << "Insertion sort (Up): " << setw(10) << (double)(end1 - start1) / CLOCKS_PER_SEC << endl;
+	//show(arr);
+ 	cout << setw(25) << "Insertion sort (Up): " << setw(10) << (double)(end1 - start1) / CLOCKS_PER_SEC << endl << endl;
 
 	FillDown(arr);
+	//show(arr);
 	start1 = clock();
 	InsertionSort(arr);
 	end1 = clock();
+	//show(arr);
 	cout << setw(25) << "Insertion sort (Down): " << setw(10) << (double)(end1 - start1) / CLOCKS_PER_SEC << endl << endl;
 
 
 
 	FillRand(arr);
+	//show(arr);
 	clock_t start2 = clock();
 	ShellSort(arr);
 	clock_t end2 = clock();
+	//show(arr);
 	cout << setw(25) << "Shell sort (random): " << setw(10) << (double)(end2 - start2) / CLOCKS_PER_SEC << endl;
 
 	FillUp(arr);
+	//show(arr);
 	start2 = clock();
 	ShellSort(arr);
 	end2 = clock();
+	//show(arr);
 	cout << setw(25) << "Shell sort (Up): " << setw(10) << (double)(end2 - start2) / CLOCKS_PER_SEC << endl;
 
 	FillDown(arr);
+	//show(arr);
 	start2 = clock();
 	ShellSort(arr);
 	end2 = clock();
+	//show(arr);
 	cout << setw(25) << "Shell sort (Down): " << setw(10) << (double)(end2 - start2) / CLOCKS_PER_SEC << endl << endl;
 
 
 
 	FillRand(arr);
+	//show(arr);
 	clock_t start3 = clock();
 	SelectionSort(arr);
 	clock_t end3 = clock();
@@ -72,15 +85,19 @@ int main()
 	cout << setw(25) << "Selection sort (random): " << setw(10) << (double)(end3 - start3) / CLOCKS_PER_SEC << endl;
 
 	FillUp(arr);
+	//show(arr);
 	start3 = clock();
 	SelectionSort(arr);
 	end3 = clock();
+	//show(arr);
 	cout << setw(25) << "Selection sort (Up): " << setw(10) << (double)(end3 - start3) / CLOCKS_PER_SEC << endl;
 
 	FillDown(arr);
+	//show(arr);
 	start3 = clock();
 	SelectionSort(arr);
 	end3 = clock();
+	//show(arr);
 	cout << setw(25) << "Selection sort (Down): " << setw(10) << (double)(end3 - start3) / CLOCKS_PER_SEC << endl;
 
 	delete[] arr;
@@ -113,62 +130,115 @@ void swap(int& a, int& b) {
 void InsertionSort(int* arr) {
 	int j;
 	long long k = 0;
-	for (int i = 0; i < N - 1; i++)
+	for (int i = 0; i < N - 1; i++)//n
 	{
-		j = i + 1;
-		while (arr[j] < arr[j - 1])
+		j = i + 1;//n
+		while (arr[j] < arr[j - 1])//2
 		{
-			swap(arr[j], arr[j - 1]);
- 			j--;
-			k++;
+			swap(arr[j], arr[j - 1]);//3
+ 			j--;//1
+			k += 6;
 		}
+		k += 3;
 	}
-	cout << k << endl;
+	cout << "count = " << k << endl;
 }
-void ShellSort(int* arr)
-{
+//3n^2
+
+//void ShellSort(int* arr)
+//{
+//	long long k = 0;
+//	int d = N / 2, j;
+//	while (d > 0)
+//	{
+//		for (int i = 0; i < N - d; i++)
+//		{
+//			j = i;
+//			while (arr[j] > arr[j + d])
+//			{
+//				swap(arr[j], arr[j + d]);
+//				j--;
+//				k += 2;
+//			}
+//			k += 2;
+//		}
+//		d /= 2;
+//		k += 2;
+//	}
+//	cout << k << endl;
+//}
+
+void ShellSort(int* arr) {
+	int temp, s, i, j;
 	long long k = 0;
-	int d = N / 2, j;
-	while (d > 0)
+	for (s = N / 2; s > 0; s /= 2)//log(n)
 	{
-		for (int i = 0; i < N - d; i++)
+		for (i = s; i < N; ++i)//n-1-log(n)
 		{
-			j = i;
-			while (arr[j] > arr[j + d])
+			for (j = i - s; j >= 0 && arr[j] > arr[j + s]; j -= s)
 			{
-				swap(arr[j], arr[j + d]);
-				j--;
-				k++;
+				swap(arr[j], arr[j + s]);//3
+				k += 4;
 			}
-		}
-		d /= 2;
-	}
-	cout << k << endl;
-}
-void SelectionSort(int* arr) {
-	int min_index;
-	long long k = 0;
-	for (int i = 0; i < N - 1; i++)
-	{
-		min_index = i;
-		for (int j = i + 1; j < N; j++)
-		{
-			if (arr[j] < arr[min_index])
-			{
-				min_index = j;
-				k++;
-			}
-			//k++;
-		}
-		if (min_index != i)
-		{
-			swap(arr[i], arr[min_index]);
 			k++;
 		}
 		k++;
 	}
 	cout << k << endl;
 }
+//log(n)*(n-1-log(n))*3=4log(n)*n-4log(n)-4log(n)^2
+
+//void SelectionSort(int* arr) {
+//	int min_index;
+//	long long k = 0;
+//	for (int i = 0; i < N - 1; i++)
+//	{
+//		min_index = i;
+//		for (int j = i + 1; j < N; j++)
+//		{
+//			if (arr[j] < arr[min_index])
+//			{
+//				min_index = j;
+//				k++;
+//			}
+//			k += 2;
+//		}
+//		if (min_index != i)
+//		{
+//			swap(arr[i], arr[min_index]);
+//			k++;
+//		}
+//		k += 2;
+//	}
+//	cout << k << endl;
+//}
+
+void SelectionSort(int* arr) {
+	int i, j, min_index;
+	long long k = 0;
+	for (i = 0; i < N - 1; i++)//n
+	{
+		min_index = i;//n
+		for (j = i + 1; j < N; j++)//((1+n)/2)*n
+		{
+			if (arr[j] < arr[min_index])//1
+			{
+				min_index = j;//1
+				k += 3;
+			}
+			k++;
+		}
+		if (min_index != i)//n
+		{
+			swap(arr[i], arr[min_index]);//3
+			k += 5;
+		}
+		k += 6;
+	}
+	cout << k << endl;
+}
+//n+n+2*(((1+n)/2)*n)+3n=6n+n^2
+
 int increment(long  inc[], long  size) {
 	int p1, p2, p3, s;
 
