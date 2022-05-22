@@ -27,21 +27,21 @@ int main()
 {
 	int* arr = new int[N];
 	FillRand(arr);
-	show(arr);
+	//show(arr);
 	int search = 5;
 	cout << "Looking for: " << search << endl << endl;
 	cout << "Linear search: " << LinearSearch(arr, search) << endl << endl;
 	cout << "Barrier search: " << BarrierSearch(arr, search) << endl << endl;
 	cout << "Binary search: " << BinarySearch(arr, search) << endl << endl;
 
-	string s = "abcabeabcabcabd";
+	string s = "wleekmrehciwaolluujgqseqslurwxbmisbddeydgbuiyfbdbphbmuwbyyiikrykbbcmpigebijeaemypcukzayrcmmmtbbmngfwwqggfrxetntdlempjtbritixyjjrlnflsfbgfiugfmaafxbxsnjesingropwojoscjwsbtiujeayumaoqvzqpmwooapszpskeywiucvjzzupvxhoqpddyqiaznympoqgyaqtbrnjkxcsywfnmrdgwtujmghhgzzqnnvplikjrqugssljvqwlvarpvotybdawvarkeiwxzpapdoaygwqhigrgarigjwmuofnhpujllwnjkfinwmdlmtyxnrotmnrgfbvzunoegxaduzvsuoglthiveyqrreboehszfufnbxdrwpuuqgxdobkndzccbbgojbyyyogqowlysyqhligfgxiptldlelqhcyvjtcglazzxiygtytzbugbioelojcpnnpnvluafqnfebirlgpxgrivtxcpsnhenpmiosmmkmawcwjygvflzibudjupumzhkqhdqqbilyjirlxzpxcynvvryvqqvfuqyaontccjicrrhifbupwdcqlezjwtvvxefviakpvignqwebnbegcxuwiytvczcjbtwdjgqkgkiillfpvfnnndccizgmmlrfugzraielmokwjjekcpnulmhbcnxadkxkbajwpvsfmchaplgilwovhgskmoyopymdumzwmoyniwzqtwmicgtpcygpxmwpepocwkyuipigjpvtrreghtrkjakbyfqmuyvdeonaysuejtpwhpgpvcfkmuyzhavyarzggomcvulijucdwvakcevelwwnnuxnqefpycvezuilrviboiyqvhkzsmtkjqujpvgdrkejctkrwctyjrbptcbmsieubbjnbqidpqihfxmxxcrbkzoirtqdpgptvbwsmtmupkupkvzfdhfhdsxcybriurswamfqxvkzlsvvsgxhumkkdpmsinbgaqmnsnmpyphkboxbyvhpysvtyfhklaicscelawtejcitcnuwvizohgyzdsfsjrwyptmsmextimpuzrkegzpvtijczjkqzvilpujfqfhnopppxdfxfxfdqfmtpxnepruliuauquozbkaofckwsjqxsyiuuvnysphpxpydyovkqlgqmpdbevuknowxtwncawdqyyglfuhukyyvkesjhfrnztbjcuezxjsdojaubthvwjrwhhrifjmrtpqioaioyncjmohcdjzyrqowpscyxlqzafjebgyqwxouhxiuzgzaugiyfwitmhnasyjyaafydziasljzffjyuuhtrqgmodyodcguktejmohnqyhpxtxrwvtygthbzovbqrkuoimsoksohpturndlwunjsnqelewnfqnuqmgjjfxsnjjezejtdpkaladfoyxgjlpusbbiseerxrhigbfzrclhsckoehfyaestihcczdqoktgjmmgwakrolebdfoyahsqxdtdqnnzdflrwpkhvmqcmcyckldtxbtnmabkhzsieaepkbbrstkvgcnypdsssoxloskhtkpbecseblcmehccrhohuqdfmbynljihqpsqfqwheoyxivfdlimjgtihefpwqbbsogowwadysdghmmxutvosjeriwudxzpuoqiuxkfekfyfhjrjejfrzojndozaoetvglaoahrnqrdlcvrmqxikercfvfalismlgabbrsxjmkduulymvlqgqaqhuowuvbtxugzvowvttihxjaghpdedafwuplgqmiygyjhgwlbeczvgculnmcgyvpnhkxjenfqzwqdbsyhgxgiqoqfhbnazfgbvtibvocxkkapkuehgycxrevnyrbomxbcfbnwzrnlpipqafqxjlzioncuymgsxeiahfsqxbupxodyieishjtmsrtuvoavexaayrgqmcqgsptkethwobztksiyubqaagjingljyiqbuptyulpocozgwpptrdfxecghnvgmsfqwdbgyyjornzkkgyhyyurnpnmjdmmpmbxzkntsxhbnonsopbawisofylinjilxlzvtcqteczitjwuknqonuekpyolzrsgekueywbwmeumqjjaimfbetryjywelqkpzujjsmmrkwtrhikzrhljwgetctiuihgowueihtucdfhoifzbcgedabdfywkyaavmahdbtjbbjkzmvmcglnmfmdkltorgeqsbitoziqasvjbsewmziumhfqhgqqckaqpjfvkltzuzhcoujwtamaozpinbvqvybsllcmcodkpxnaaqovzeksmtkdeldjpyhzzzhjextymqjhmxxnyuwtzolqilssrprbpymyvgazaztoevtqwsojalaadzpxrecsgqmfamkjofmnkiixtgtqkxatzklstevuhdinpifktvkvujjuzbanpcaglgmkysocwadimnmxkopgrvmmhxbiszsmgnekoiptdsshgzvxwgzfcshmfhkldsjbfkutaadtxqbgyvwlvmxsheckabquuijihncmtwssgxkfpiwhllmcvvgtskkdcsifyqakpdeewhkovutyjygtyspmqgcpwrqffqxvfzswrygrfedgxuphomodhwmpnnvjmmclcamvvmyixxwjgsqtzxezfyqteaguynwvnqkvbrcuxtpvkzsxbscvkuckwptrfuqrufnevpdyrmhbhugjpbprjjkmuiakqacgjxgoonljvgnxhnugvzbuolhzdpsqnnnjrggiobumxdhcqcbmbtunqdddoxixlduknmgscjawkwduuudlvuzfmqbiujgybkuxtqcfbxkdqksjjifvwudgwtuvuqxgzbudufnbqebvlbohbemmwkvgqoxnbfmfvgefgljeumyoflygiyzxyqcgsdasopayjhldlqkcwcibszmghbmvmaxopkvwlulfolhiiihbvfpagjjicjwyeyhrefjsgoerlfuegnmnuvfapiavhjogxcfmuxsdrnzofdfwhikeftqjrowqyndlemgeyoyhruahqhogcqwuywoqxadbcmbfcrxikhszcvfkrdqcnhrabepjsyncsusrnqugtkfiywlcppzhsnuootohwoobmpergdvaivwmoswvtcsgilanbxcixfmymudtgpakfuohydvfgqsppjrtebboibaapelboptjszkfymwaxwrgbbcpjyyvvtjtfgdzpkevanydoaxilwcqxhmpbetiasvpsfeftfgmmiamhonwxgjuyqwgsuejxbmlmeouenwhdrfsnufamdbjecweeduonarasolxfvzoldjrlssohgnaiotpjlzablehqkbdyudvqvflqqnokqneczvcyuuwjkwzkpcccsweulanfxhnkjmlafdbarkhbvbtbzakpjqrdzkwkiorkbajyycvvnzmrouigdfjvendivsqxcmppllpyptomeqarbevxdsablxckpzwvvcgxqkhcfklpvmrkxlxnpfwgaeusjgesswqccvflloldhxeqnudyrlbwkgbvqhmqbitnagxrcxhmtasgzobuqkvzondnkxvrgdumiywfnrmzthnekcittllfhjkylhtagoiufqqhjxnmdkexkfwomfkrxirujwaxaqihqwixevgucufxiarmjbaccvgogcejzufmcrfetirgmdawlaulmhbfwmcgjaltzdorqcvejvojxlyziykhwqztrmwetpuxfpvefxrwmzdbxqhtqwflghfdaytqgemyinnzeplsibghbzyiaqdzppnsaxaucvgpkugfecbrlgrebabayabmyhslqlrstfdrfyplbhdjbmxugftaejuocklhxuufldfnjqiiuoaeindmocqprdmntqypmnsncwghptzvlcbntztqmfhngspwvfriyiqnkiouofufzspcwivcvquvoiwapeezplwqbfbyofbllazxagjqixmjvxfhijvdfxvowseqgpuaqzrylbcbmcwozmxozwjyjagybtqydbatlfgcrgnsgovcbhctoreerebuhocquawxfiirffxevcxzxpejhaekrudtesubtukokdfkcokilyrdhgtvhvapaywqcebqqggtwpxmozjhgmkxlggpipsjawpoegvkbgtbbfljggjchkgyqlmtluhyhplnjjybtxgfskrzenjlweomxzfmxefjlnlqnhsykdennabqhijyckziaskbytzvgteugrpovqdbdrpltydipqvynvstkfbgjfkvsdrctuankezwioortxmhufgbshkueprhsoyxjtggfupctflvniurncbryflfxxwzcszzhqqbxmypohvvkhnwsbnnfgafrhrxyflszfeydfogfsbbzrqxhirbvixbnhlyfphciqkhqrbhbhierfijcxdcvaogcypqquozrrfucdbwrnhosxyzcnjaojywrlssnznvyvmexcghijuafvtbzbhvvljredewwwjhtngtqnbkzhvdunypneauhgbybayxjxsolfboenhzestrrpmmbonwoieewmtwlsubvojkpyhajehgmtxzcsbmtdgkotlotzczgyrovbfvqlocavssjrzodvjvopglqoezvvllqwxxquewwhlyyhxoxgnypnozermdyskihjcskkkqwsbbdenogirnourxowtlsvxghyjrbfavlgkrxhfkvwqcviqrprkxecvlnqzennipfqsjfarewmvjzjfnkgsukllmqmxjstoqkxrzqhkndtwtzryhdbctrexxaqokbhnqvfwkhzymfzgnwthqnmttijqxxykovhiqmhfktjsmgaugmgnisvcgzmlkjbhviuvfapnqbgateagssqzslhrfvtndjgndzvuoyovtrmpesbxzqfectuuzkirwnnilvyzdxpqyuzsisrerwejaeeawzxpvsdusnewmcvscwuwehzrrggsiwwzypzwvuiypceikrbqvvxgnfcedtqrrpnrpjpjnymuvstotcnidisvunxbudsjnnaytuwnruzhrvteftowhkxyqamkcxqakhswiakkookoxqqoqqvkxrujvgphlduhxbzunmkhgswylerwbwadazpotpdfnxwhsspxxgemyuunvdomnssyqbkdkgllctrzeknqnnnxgntquvudbxfqudenzbtlydgdhwudmkiwacslnjehwrusizekcsecnweuutawnvixfficqhmlyffotdkkblvyjndlgrkucdsssizmimqksnjdoryfhqfqcecbsfwfqkwlfhtygsvxhumhcdoprqpxzjoxxbxadedszktynprtynlosscytwpbldocuzwpbucdjeuihgkrkpcmrfvjecryspmptwwwhsbbkskrlzjjecepdfqbdacobfbijpmklnjasfippbuzkqhueigdeaewbtfmfjqhmpbevjjsmyoguasfpsercathtbqrccigpjhaeyruayctongeekmfbbtqwqcsguniwrgxqlmvradpfeltvkiejocyolzckbnyqbnfxgecmtxffhpigorwpghiuwsbijmipawxzokxarvcwabyszvmlejxbzcrkjiyylysantjomrrvovllfxdaaulknvjhgkhsfrzgvylxgkutnnvrqfatvroeajleenmpzoikbpapfcmrwstbyfzveicltmhlwtuufatmdjolfymdgvlyewcrdhafieuxhkrxufntlsepuksvhkxpinldltxzfqhknxydhvkxsvpennaaqrbbqeqkiiduqcppebloywxuhmuzxhhsooihzgfmnycduonyqebsgoludjvxenkwrqwkslietipngfaipeejyvnzlaujmnztwdlbjtdzubvfgdjfnvehipflmkzqoqfmwutliouywqittajxdusmopipvagfvgtvrjxoduuhpvauoajywfrkazraysefsrweojcxumfpenwjutglnxlfgmlknyfsnzitihfofwdngrhocrqpwlxyfmjrpcrbtjkesetzelqwhfrsltxvkciafrhwnnhwjkyqpuwavjnynkheldwbovustkhdmpnkcyhdioellsrawijhpgzgmktyjxkwgbalnegqfjclaffuxmtuolnhcdrdffhghearsmtwomlhvgyfbzngpuxxsbpspqehtzycgyjtgxpdnoddglcflwllpsxovugnrmixyfddugbsrqfsxngcjoclwtzpwgvkzyyvqpvcgbbgpvblplrtqpsfozxohpezfafyjfmenulbwjrkuvltulufhxlquyzzljhozhalhofdwxpaywhzwksacuwbhniramkmphvtfltjrasrvirwjjxxbpbtieynipniwvqfvxpkpsptaswiszmmmpypbqpubesrmegyjilododkpdoghrqfmrxswebcbhphyoflinakkozxjxzoleruvonyzwusmzuijilmgwsjpkqizprmnkgvirzpaxuskxgoyeehfemadnaflttdomtnwurkvvzjzhnyepegljzmrqrbfammtdtlzkqifpdfnninwkhvqrpyszxnkiufapjqxsootowvqgffkzfhjhbohaaitgqntcwghcrzyrdxdbqbchgzjcvxjaeivszrhpmzxxcipjqwmvrmtgkxopdjtdbdyjnugkxajhmlijrhvkajcozlqnpzpdkbdwfhfzbzbcwdeftxbutjtbewnydrpdbbdejjytdnotjxvpzidgrcmxmdfhciinxzgndeggncwgobckcelddupabxevmhhmnwwfycwtduhblcvtnjzmvpqlhwvumxaesbsyshudmysilmvfbxujovmmkmzqchlngfmppbtzwmqvbenaizmdlriigfofntcdjjrpuwxzudtoehlhzysbqqohnipdfmwdgfetxzqmwhwnqgfttnyiffooznictkrpycncrabcqxrdryfrkbvuecnjrzawhjtrinhgtkaynusetzrjwawcdpcglexcedfjtxmauvxyomzcufxgvfwnojqsbtpxcvcvcvlonivlmuigxjtjgvcnejmwnwyztsdiqgytumhmdjqnvwbtadocfksphbmzeydzdhxpxcdmnmdbkbvnuddfwqtdezlxrcqtaeyhnubowerdzodqliysaivfzrdjqtmcgvlqinukeebuxjdlgtjwurwfuxnzeivgotgrzooyjhnurhswzggrcfsrkqttgrdktzyeqvcshoctasiznenatnfuatyketchznqphndccmudxvedgrbkftmrzwluakylmmdetkhjeosjmkzgnrmxcdrmccjkknktpaohkibruowyafloigrksveskapppqmwejcoauinfufoameuwhbzpeuxjeaxlsmztppjdmtzfazdzcyrwxqxvajhqhruvhtufplzuwupgmlxaazdldkqerqsxwfuebmvfzfkfvygzpwujenaynqbpimpfbuyhrhpknjenqrydxfapmanzzgjjlfhlymtiiqtpwwppzuicrniefhaywhwfdktvztivehdxbepohlgcdhzaptichhwtsqrfyjsrnsefjrjikalwmrcqlbdecevdxqbbbwlltikfrdyujdhvugjisfhkaxzpbssadertnccjbkctywucsflxzvneimjjepbmzexfbobdgfaevjwtxndpwhkgwgtbplicrbnsurvlmtpkyxjjixylksnbathvyhxebbudmxltmqqhiktospupeviveryebkhzwahllvgfdywgyucimothimeznkpzrxoahdewptulldbfdnibuhwzqtcwmprtogdactaltyprnwkpovckuzxlsewnbdpgpndynpykvosemtyxhujknppeycfnblikxvxgywmbvxwcbhqkwpctkyojhreitiapguxfxlendxnstmhliflpaggyyaolvalmoxxbdaivuziebtxaulcxlsqqzapgqkteakowvyjrsotmogaggthqiovssjbyntmyxliwzounsimrfuyfybpqdhmxtfwqwdhimlrjwgwiqfblcfnzntwapudgdceituqzhtcfedtmuhdkxtjcgryzwpshzjfyxgfifajfyvncvhhgvtkbapnmezqquvvdjbjcjpkgtwgsjggzsjnebxzultmidqqcirnfvkkapqfkqexdfeuyerztjryfjoslpykthfuafcdobauiojffkagbsfvyblsuaksindmrqfkuwgtnmwngvegxdjwvcissfpicmqutxsxmdctmzexqajtsllrthcxtkhqpskklwdtjblvpgznxabrbbvmstnhiozvwfdrusedrasuayskfeswnyaklvkovucbeltiiqziwntgtdolwzegeacwdgcsqgnwtaiftgbjljwxpevcrgfqwuxfyuyqnvkkqfgcyjsshxhtmbbhgehjjwnuicvpekrsxrcmhstflbgptyudpgxnbazdqkcgovhskvcbozajjwxjkvlsukutltjefankopmchifcaelvhonwzkauvqqdielnjiwlwtaixcequdygnyssuychkxtrvsrvnorzoxcmwmihpxgqyaaacmhjhzthbcosqtqyojyqghwugtyoqbbrzsdtcvbfzkurcekphqkshuaurfoisubtxouuhisylkkzxyjdicxkejtzxjaayrtdancuouzznrvwdksqhboreyphnxnqjewtqdpqwxrorqmbolkqwolvvwpylqqtswgzujgkvqyegangnmxwfszytknzdemuxcuejxsoqrpdzbrrmqgpviruarmsmylmwnxkmldcayduyfwqgbffagkgsolxnvskugazymnirsuscrjjrffomewgdgrfcuampjtwgpohmvnuadkslfhutygpjpkbsspqodmfktoogepvmlhledngwdiatozrfnhpttsmbpglnfcsuprnijiganutcmwiobrnhkdimjsnvabopmqylbyhzwckalnrcpfymquhsvdukdvtxodubcnfkolkmaiqidzfqtwmrgfurxoxmkbyeyyvlgxxjajzfquitwantytwooxrqehxbkhdjklhxssbvzrqxszvhqiuldvkicvpliitqowzsvvxloqybcsnhxndbysxnpyusmifsrojsvgzvgoytoikijarowfdvkwhjuwaxsfkuyrzaohrovvoasrhgiscxhjhvwqkgxljwfmbyjztnuyoeadelrmqklryizqxuagatoirjuwkgsdnqcfqezzugywnagndqrxdwwcvsclwaaeirwcsyyjatumjeqqtqdiougomtlnecuxmebpuaiezpnczkxenxdskcqpgdghwbvzkwmzryvhwbkvpaqdbrsodmktoywunzwqvjrtevvbzgaysuggfubjapyawscyyivbvnawbuleryqzyigbsfpidicdlohkzuwzknvdjszongcezdmunpcwannzfiwhsjjqdtrljsxhpsmdfmqfhvkzdtyroanetkwztuuzqmisdhfsgkihxaxmzvrryfnzsifvbcplyjohyyqowyiicewtukdjidqhdeqgahwfjqbnimvjxycnoihaovwywpaodlfxxqmhviyyfkrsrmqqoeiresifnlpncdqtaeuimqyvqvdshalskjklzotryhtwzhoaohxmhjrsmdnxzalikptxhjehgjxdntksxzrljagmouvuzvkvnobxzjnwtdbhdvhvejlgjjgxgtpiyhtgyxuvveqxcovdtvpvzkflotiakqmircupdiawglqdagismtzuewmdynvvjloaaeazssuxvimzsvwralwdtiqyvadoberdxnimdkwuynnzchjvkwiafzxpcvkkteqihdhhdktwcyhmgnhbkfbuwer";
 	cout << s;
-	string s1 = "abcabd";
+	string s1 = "hdktwcyhmgnhbkfbuwer";
 	cout << endl << "Looking for: " << s1 << endl << endl;
 	cout << "Straight search: " << SubStringSearch(s, s1) << endl << endl;
 	cout << "KMP: " << KMP(s, s1) << endl << endl;
 	cout << "Boyer Moore: " << BMSearch(s, s1) << endl << endl;
-	cout << "Rabin Karp: " << rabinKarp(s1, s, 13) << endl << endl;
+	cout << "Rabin Karp: " << rabinKarp(s1, s, 333) << endl << endl;
 }
 
 void FillRand(int* arr) {
@@ -109,7 +109,7 @@ int BinarySearch(int* arr, int key)
 {
 	int k = 0;
 	ShellSort(arr);
-	show(arr);
+	//show(arr);
 	int middle,
 		low = 0,
 		high = N;
@@ -151,12 +151,35 @@ int SubStringSearch(string& s, string key)//m*(n-m), n^2
 					cout << "K = " << c << endl;
 					return n;
 				}
-				c += 2;
+				c += 4;
 			}
 		}
-		c += 1;
+		c += 2;
 	}
 	return -1;
+	/*int res = -1;
+	int k = 0;
+	for (int i = 0; i < (s.size() - key.size() + 1); i++)
+	{
+		for (int j = 0; j < key.size(); j++)
+		{
+			if (key[j] != s[i + j])
+			{
+				k += 2;
+				break;
+			}
+			else if (j == key.size() - 1)
+			{
+				res = i;
+				k += 3;
+				break;
+			}
+			k++;
+		}
+		k++;
+	}
+	cout << "K = " << k << endl;
+	return res;*/
 }
 int KMP(string& s, string key) //n + m //m
 {
@@ -171,16 +194,16 @@ int KMP(string& s, string key) //n + m //m
 			k++;
 			l++;
 			if (l == key.size()) {
-				cout << "K = " << c+s.size()*3 << endl;
+				cout << "K = " << c/*+s.size()*3*/ << endl;
 				return k - key.size();
 			}
-			c += 3;
+			c += 2;
 		}
 		else  if (l == 0)
 		{
 			k++;
 			if (k == s.size()) {
-				cout << "K = " << c + s.size() * 3 << endl;
+				cout << "K = " << c /*+ s.size() * 3*/ << endl;
 				return -1;
 			}
 			c += 2;
@@ -252,9 +275,9 @@ int BMSearch(string txt, string pat) //n/m, n, nm //+m+alphabet
 	return -1;
 }
 int rabinKarp(string pattern1, string text1, int inputBase) { //n, n, nm //+m
-	char pattern[256];
+	char pattern[10001];
 	strcpy(pattern, pattern1.c_str());
-	char text[256];
+	char text[10001];
 	strcpy(text, text1.c_str());
 	int patternLen = strlen(pattern);
 	int textLen = strlen(text);
@@ -266,7 +289,7 @@ int rabinKarp(string pattern1, string text1, int inputBase) { //n, n, nm //+m
 	for (i = 0; i < patternLen; i++) {
 		patternHash = (pattern[i]) % inputBase;
 		textHash = (text[i]) % inputBase;
-		k += 4;
+		k += 5;
 	}
 
 	for (i = 0; i <= textLen - patternLen; i++) {
@@ -277,20 +300,22 @@ int rabinKarp(string pattern1, string text1, int inputBase) { //n, n, nm //+m
 				k += 2;
 			}
 
-			if (j == patternLen)
+			if (j == patternLen) {
 				//out << "Pattern is found at position: " << i + 1 << endl;
 				cout << "K = " << k << endl;
 				return i;
+			}
 			k++;
 		}
 
 		if (i < textLen - patternLen) {
 			textHash = (text[i + patternLen]) % inputBase;
-			k += 2;
+			//k += 3;
 			if (textHash < 0) {
 				textHash = (textHash + inputBase);
-				k+=2;
+				//k+=3;
 			}
+			//k += 2;
 		}
 		k++;
 	}
