@@ -1,6 +1,7 @@
 #pragma once
-#include <vector>
 #include <iomanip>
+#include <vector>
+#include <fstream>
 using namespace std;
 
 struct HTElem
@@ -23,7 +24,6 @@ struct HTElem
 
 class HashTable {
 private:
-	vector<HTElem> arr2;
 	HTElem* arr;
 	int length,
 		full = 0;
@@ -47,59 +47,44 @@ public:
 		{
 			if (!arr[i].contains)
 			{
-				n.contains = true;
 				arr[i] = n;
+				arr[i].contains = true;
 				full++;
 				break;
 			}
 		}
-		if (!n.contains)
+		/*if (!n.contains)
 		{
 			arr2.push_back(n);
+		}*/
+		Check();
+	}
+	void Add2(int key) {
+		for (int i = 0; i < length; i++) {
+			int hash = (key % length + 1 * i + 3 * i * i) % length;
+			if (!arr[hash].contains) {
+				arr[hash].data = key;
+				arr[hash].key = hash;
+				arr[hash].contains = true;
+				full++;
+				break;
+			}
 		}
 		if ((full * 100 / length) >= 70)
 		{
-			Resize();
+			Resize2();
 		}
 	}
-	void Add2(int d) {
-		HTElem n(hash(d), d, false);
-		int h = hash(d);
-		for (int i = h; i < length; i += i + 3 * i * i)
-		{
-			if (!arr[i].contains)
-			{
-				n.contains = true;
-				arr[i] = n;
+	void Add3(int key) {
+		for (int i = 0; length; i++) {
+			int hash = (key % length + i * (1 + (key % (length - 1)))) % length;
+			if (!arr[hash].contains) {
+				arr[hash].data = key;
+				arr[hash].key = hash;
+				arr[hash].contains = true;
 				full++;
 				break;
 			}
-		}
-		if (!n.contains)
-		{
-			arr2.push_back(n);
-		}
-		if ((full * 100 / length) >= 70)
-		{
-			Resize();
-		}
-	}
-	void Add3(int d) {
-		HTElem n(hash(d), d, false);
-		int h = hash(d);
-		for (int i = h; i < length; i *= hash(h))
-		{
-			if (!arr[i].contains)
-			{
-				n.contains = true;
-				arr[i] = n;
-				full++;
-				break;
-			}
-		}
-		if (!n.contains)
-		{
-			arr2.push_back(n);
 		}
 		if ((full * 100 / length) >= 70)
 		{
@@ -136,6 +121,26 @@ public:
 			}
 		}
 	}
+	void Search2(int d) {
+		for (int i = 0; i < length; i++)
+		{
+			int hash = (d % length + 1 * i + 3 * i * i) % length;
+			if (arr[hash].data == d) {
+				cout << endl << setw(4) << arr[hash].data << setw(4) << hash << setw(4) << arr[hash].key << "\t";
+				break;
+			}
+		}
+	}
+	void Search3(int d) {
+		for (int i = 0; i < length; i++)
+		{
+			int hash = (d % length + i * (1 + (d % (length - 1)))) % length;
+			if (arr[hash].data == d) {
+				cout << endl << setw(4) << arr[hash].data << setw(4) << hash << setw(4) << arr[hash].key << "\t";
+				break;
+			}
+		}
+	}
 	void SearchL(int d) {
 		int h = hash(d);
 		if (arr[h].data == d)
@@ -155,6 +160,12 @@ public:
 			}
 		}
 	}
+	void Check() {
+		if ((full * 100 / length) >= 70)
+		{
+			Resize();
+		}
+	}
 	void Resize() {
 		HashTable temp(length + 10);
 		for (int i = 0; i < length; i++)
@@ -164,10 +175,10 @@ public:
 				temp.Add(arr[i].data);
 			}
 		}
-		for (int i = 0; i < arr2.size(); i++)
+		/*for (int i = 0; i < arr2.size(); i++)
 		{
 			temp.Add(arr2[i].data);
-		}
+		}*/
 		length += 10;
 		arr = new HTElem[length];
 		for (int i = 0; i < length; i++)
@@ -175,6 +186,29 @@ public:
 			arr[i] = temp.arr[i];
 		}
 		temp = NULL;
+		//arr2.clear();
+	}
+	void Resize2() {
+		HashTable temp(length + 10);
+		for (int i = 0; i < length; i++)
+		{
+			if (arr[i].contains)
+			{
+				temp.Add2(arr[i].data);
+			}
+		}
+		/*for (int i = 0; i < arr2.size(); i++)
+		{
+			temp.Add2(arr2[i].data);
+		}*/
+		length += 10;
+		arr = new HTElem[length];
+		for (int i = 0; i < length; i++)
+		{
+			arr[i] = temp.arr[i];
+		}
+		temp = NULL;
+		//arr2.clear();
 	}
 	void Resize3() {
 		HashTable temp(length + 10);
@@ -185,10 +219,10 @@ public:
 				temp.Add3(arr[i].data);
 			}
 		}
-		for (int i = 0; i < arr2.size(); i++)
+		/*for (int i = 0; i < arr2.size(); i++)
 		{
 			temp.Add3(arr2[i].data);
-		}
+		}*/
 		length += 10;
 		arr = new HTElem[length];
 		for (int i = 0; i < length; i++)
@@ -196,6 +230,125 @@ public:
 			arr[i] = temp.arr[i];
 		}
 		temp = NULL;
+	}
+	void Insert() {
+		ifstream in;
+		in.open("1.txt");
+		if (in.fail()) cout << "ERROR opening file";
+		int d;
+		while (in >> d)
+		{
+			Add(d);
+		}
+		in.close();
+	}
+	void Insert2() {
+		ifstream in;
+		in.open("1.txt");
+		if (in.fail()) cout << "ERROR opening file";
+		int d;
+		while (in >> d)
+		{
+			Add2(d);
+		}
+		in.close();
+	}
+	void Insert3() {
+		ifstream in;
+		in.open("1.txt");
+		if (in.fail()) cout << "ERROR opening file";
+		int d;
+		while (in >> d)
+		{
+			Add3(d);
+		}
+		in.close();
+	}
+	void InsertL() {
+		ifstream in;
+		in.open("1.txt");
+		if (in.fail()) cout << "ERROR opening file";
+		int d;
+		while (in >> d)
+		{
+			AddL(d);
+		}
+		in.close();
+	}
+	void Delete(int d) {
+		int h = hash(d);
+		if (arr[h].data == d)
+		{
+			arr[h].data = NULL;
+			arr[h].key = NULL;
+			arr[h].contains = false;
+			return;
+		}
+		for (int i = h; i < length; i++)
+		{
+			if (arr[i].data == d)
+			{
+				arr[i].data = NULL;
+				arr[i].key = NULL;
+				arr[i].contains = false;
+				return;
+			}
+		}
+	}
+	void Delete2(int d) {
+		for (int i = 0; i < length; i++)
+		{
+			int hash = (d % length + 1 * i + 3 * i * i) % length;
+			if (arr[hash].data == d) {
+				arr[hash].data = NULL;
+				arr[hash].key = NULL;
+				arr[hash].contains = false;
+				break;
+			}
+		}
+	}
+	void Delete3(int d) {
+		for (int i = 0; i < length; i++)
+		{
+			int hash = (d % length + i * (1 + (d % (length - 1)))) % length;
+			if (arr[hash].data == d) {
+				arr[hash].data = NULL;
+				arr[hash].key = NULL;
+				arr[hash].contains = false;
+				break;
+			}
+		}
+	}
+	void DeleteL(int d) {
+		int h = hash(d);
+		if (arr[h].data == d)
+		{
+			arr[h].contains = false;
+			for (int i = 0; i < arr[h].list.size(); i++)
+			{
+				AddL(arr[h].list[i].data);
+			}
+			if (arr[h].key != h)
+			{
+				arr[h].data = NULL;
+				arr[h].key = NULL;
+				arr[h].list.clear();
+			}
+			return;
+		}
+		else
+		{
+			for (int i = 0; i < arr[h].list.size(); i++)
+			{
+				if (arr[h].list[i].data == d)
+				{
+					arr[h].list[i].data = -1;
+					arr[h].list[i].key = NULL;
+					arr[h].list[i].contains = false;
+					return;
+				}
+			}
+		}
 	}
 	void Print() {
 		for (int i = 0; i < length; i++)
@@ -214,9 +367,6 @@ public:
 				cout << "    " << setw(4) << i << "  " << endl;
 			}
 		}
-		/*for (int i = 0; i < arr2.size(); i++)
-		{
-			cout << arr2[i].data << " " << arr2[i].key << "    ";
-		}*/
+		cout << endl;
 	}
 };

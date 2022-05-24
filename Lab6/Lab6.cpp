@@ -4,9 +4,9 @@ using namespace std;
 
 int main()
 {
-	HashTable ht(11);
+	HashTable ht(20);
 
-	ht.AddL(49);
+	/*ht.AddL(49);
 	ht.AddL(32);
 	ht.AddL(75);
 	ht.AddL(53);
@@ -20,7 +20,7 @@ int main()
 	ht.AddL(82);
 	ht.AddL(83);
 	ht.AddL(84);
-	ht.AddL(85);
+	ht.AddL(85);*/
 
 	/*ht.Add(49);
 	ht.Add(32);
@@ -70,6 +70,11 @@ int main()
 	ht.Add3(84);
 	ht.Add3(85);*/
 
+	ht.InsertL();
+
 	ht.Print();
-	//ht.SearchL(19);
+	//ht.SearchL(83);
+
+	ht.DeleteL(49);
+	ht.Print();
 }
