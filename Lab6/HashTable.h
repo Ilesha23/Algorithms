@@ -342,7 +342,7 @@ public:
 			{
 				if (arr[h].list[i].data == d)
 				{
-					arr[h].list[i].data = -1;
+					arr[h].list[i].data = NULL;
 					arr[h].list[i].key = NULL;
 					arr[h].list[i].contains = false;
 					return;

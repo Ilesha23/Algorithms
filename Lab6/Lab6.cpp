@@ -6,75 +6,137 @@ int main()
 {
 	HashTable ht(20);
 
-	/*ht.AddL(49);
-	ht.AddL(32);
-	ht.AddL(75);
-	ht.AddL(53);
-	ht.AddL(85);
-	ht.AddL(19);
-	ht.AddL(76);
-	ht.AddL(44);
-	ht.AddL(5);
-	
-	ht.AddL(81);
-	ht.AddL(82);
-	ht.AddL(83);
-	ht.AddL(84);
-	ht.AddL(85);*/
+	int w, a = 0, b = 0;
+	do
+	{
+		cout << endl;
+		ht.Print();
+		cout << endl << setw(15) << "Add - 1" << endl;
+		cout << setw(15) << "Insert - 2" << endl;
+		cout << setw(15) << "Search - 3" << endl;
+		cout << setw(15) << "Delete - 4" << endl;
+		cout << "> "; cin >> w;
+		switch (w)
+		{
+		case 1:
+			cout << "Enter: ";
+			cin >> b;
+			if (b == 1)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.Add(a);
+			}
+			if (b == 2)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.Add2(a);
+			}
+			if (b == 3)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.Add3(a);
+			}
+			if (b == 4)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.AddL(a);
+			}
+			break;
+		case 2:
+			cout << "Enter: ";
+			cin >> b;
+			if (b == 1)
+			{
+				ht.Insert();
+			}
+			if (b == 2)
+			{
+				ht.Insert2();
+			}
+			if (b == 3)
+			{
+				ht.Insert3();
+			}
+			if (b == 4)
+			{
+				ht.InsertL();
+			}
+			break;
+		case 3:
+			cout << "Enter: ";
+			cin >> b;
+			if (b == 1)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.Search(a);
+			}
+			if (b == 2)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.Search2(a);
+			}
+			if (b == 3)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.Search3(a);
+			}
+			if (b == 4)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.SearchL(a);
+			}
+			break;
+		case 4:
+			cout << "Enter: ";
+			cin >> b;
+			if (b == 1)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.Delete(a);
+			}
+			if (b == 2)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.Delete2(a);
+			}
+			if (b == 3)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.Delete3(a);
+			}
+			if (b == 4)
+			{
+				cout << "Enter number: ";
+				cin >> a;
+				cout << endl;
+				ht.DeleteL(a);
+			}
+			break;
+		default:
+			break;
+		}
+	} while (w <= 4 && w >= 1);
 
-	/*ht.Add(49);
-	ht.Add(32);
-	ht.Add(75);
-	ht.Add(53);
-	ht.Add(85);
-	ht.Add(19);
-	ht.Add(76);
-	ht.Add(44);
-	ht.Add(5);
-
-	ht.Add(81);
-	ht.Add(82);
-	ht.Add(83);
-	ht.Add(84);
-	ht.Add(85);*/
-
-	/*ht.Add2(49);
-	ht.Add2(32);
-	ht.Add2(75);
-	ht.Add2(53);
-	ht.Add2(85);
-	ht.Add2(19);
-	ht.Add2(76);
-	ht.Add2(44);
-	ht.Add2(5);
-
-	ht.Add2(81);
-	ht.Add2(82);
-	ht.Add2(83);
-	ht.Add2(84);
-	ht.Add2(85);*/
-
-	/*ht.Add3(49);
-	ht.Add3(33);
-	ht.Add3(75);
-	ht.Add3(53);
-	ht.Add3(85);
-	ht.Add3(19);
-	ht.Add3(76);
-	ht.Add3(44);
-	ht.Add3(5);
-
-	ht.Add3(81);
-	ht.Add3(82);
-	ht.Add3(83);
-	ht.Add3(84);
-	ht.Add3(85);*/
-
-	ht.InsertL();
-
-	ht.Print();
-	//ht.SearchL(83);
-
-	ht.DeleteL(49);
-	ht.Print();
 }
