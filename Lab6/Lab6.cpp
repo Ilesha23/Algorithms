@@ -19,7 +19,7 @@ int main()
 		switch (w)
 		{
 		case 1:
-			cout << "Enter: ";
+			cout << "1-linear, 2-quad, 3-doublehash, 4-list: ";
 			cin >> b;
 			if (b == 1)
 			{
@@ -51,7 +51,7 @@ int main()
 			}
 			break;
 		case 2:
-			cout << "Enter: ";
+			cout << "1-linear, 2-quad, 3-doublehash, 4-list: ";
 			cin >> b;
 			if (b == 1)
 			{
@@ -71,7 +71,7 @@ int main()
 			}
 			break;
 		case 3:
-			cout << "Enter: ";
+			cout << "1-linear, 2-quad, 3-doublehash, 4-list: ";
 			cin >> b;
 			if (b == 1)
 			{
@@ -103,7 +103,7 @@ int main()
 			}
 			break;
 		case 4:
-			cout << "Enter: ";
+			cout << "1-linear, 2-quad, 3-doublehash, 4-list: ";
 			cin >> b;
 			if (b == 1)
 			{

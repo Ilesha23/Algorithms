@@ -53,10 +53,6 @@ public:
 				break;
 			}
 		}
-		/*if (!n.contains)
-		{
-			arr2.push_back(n);
-		}*/
 		Check();
 	}
 	void Add2(int key) {
@@ -175,10 +171,6 @@ public:
 				temp.Add(arr[i].data);
 			}
 		}
-		/*for (int i = 0; i < arr2.size(); i++)
-		{
-			temp.Add(arr2[i].data);
-		}*/
 		length += 10;
 		arr = new HTElem[length];
 		for (int i = 0; i < length; i++)
@@ -186,7 +178,6 @@ public:
 			arr[i] = temp.arr[i];
 		}
 		temp = NULL;
-		//arr2.clear();
 	}
 	void Resize2() {
 		HashTable temp(length + 10);
